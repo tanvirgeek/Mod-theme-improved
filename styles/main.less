@@ -87,7 +87,7 @@
 
 #cool-header{
     border-top:3px solid #232323;
-    position: relative;
+    position: fixed;
     background-color: white;
     width:100%;
     overflow: hidden;
@@ -101,6 +101,8 @@
         #pop-links { float:right;  text-align:right!important;margin:0!important; padding:8px 0; }
     }
 }
+// pushing down everything for fix positioned cool-header 
+#cool-header,#my-pop-title,#top-region,#bottom-region,.footer{position:relative; top:77px;}
 
 // Pop title
 #my-pop-title{
@@ -121,6 +123,7 @@
     color:	#323232;
     letter-spacing:	-3px;
     line-height:	1.45;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
      #populr > .text-color-over-color(@background-color);
 
 }
@@ -271,7 +274,6 @@ body {
         float: left;
         margin: 0 10px 8px 0;
         color: #fff;
-        font-size: 13px;
         text-align: center;
         text-decoration: none;
         font-style: normal;
@@ -297,9 +299,8 @@ body {
     }
   }
 }
-
-.columnizer-cols3,.columnizer-cols4{
-        
+// to make the doctile below the button in lower width column
+.doc-title-down(){
         .download-button{
             margin:0 0 10px 0;
         }
@@ -314,6 +315,9 @@ body {
         }
 }
 
+.columnizer-cols3,.columnizer-cols4{
+    .doc-title-down();
+}
 
 //embed
 
@@ -558,30 +562,45 @@ body {
    }
    
    #cool-header-inner,.columnizer-row-inner,#pop-title{
-        width:80%!important;
+        width:92%!important;
    }
-    //the fluid grid
-    .columnizer-row-inner {
-      margin: 0 auto;
-      width: 80%;
-    }
+    //the fluid grid for ipad/tablet devices
     .columnizer-col {
-            float: left;
-            margin-left: 20px;
-
-            .columnizer-cols1 & { width:70%;}
-            .columnizer-cols2 & { width:45%;}
-            .columnizer-cols3 & { width: 30%;}
-            .columnizer-cols4 & { width: 23%;}
-            &:first-child { margin-left: 10px; }
-            &:last-child { margin-right: 10px; }
+        float: left;
+        margin-left: 4.026%!important;
+        .columnizer-cols1 & { width: auto!important;}
+        .columnizer-cols2 & { width:46%;}
+        .columnizer-cols3 & { width: 30%;}
+        .columnizer-cols4 & { width: 21.5%;}
+        &:first-child { margin-left: 0!important;}
+        &:last-child { margin-right: 0!important;}
     }
 
     .columnizer-row-inner{
-        .columnizer-cols1 & { width:73%;}
-        .columnizer-cols2 & { width:73%;}
+        .columnizer-cols1 & { width:60%!important;}
+        .columnizer-cols2 & { width:60%!important;}
+    }
+    
+    //100% width images seems squeezed. Is it image quality problem?
+    .populr-image-slider,
+    .populr-image-slider .slideshow,
+    .populr-image-slider .slideshow .slide,
+    .populr-image-slider .slideshow .slide img {width: 100% !important;}
+
+    .columnizer-cols2{
+        .doc-title-down()!important;
+    }
+    
+    //download button too big in cols4. need to make it smaller 
+    .columnizer-cols4{
+        .download-button{
+            line-height: 20px!important;
+            padding: 14px 18px!important;
+            font-size: 11px!important;
+        }
     }
 }
+
 
 @media screen and (max-height: 800px) {
   body { background-size: 100% !important; }
