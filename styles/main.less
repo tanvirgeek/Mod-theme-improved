@@ -24,8 +24,8 @@
 @text-color: #8C8C8C;
 // @custom-color is defined in variables.less
 @link-color: @custom-color;
-
 // Title text defaults
+
 // @headline-font-family is defined in variables.less
 .headline-text() {
   font-family: @headline-font-family;
@@ -92,6 +92,7 @@
     width:100%;
     overflow: hidden;
     padding: 13px 0;
+    z-index:1000;
     #cool-header-inner{
         width: 1060px;
         margin: 0 auto;
@@ -126,7 +127,6 @@
     line-height:	1.45;
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
      #populr > .text-color-over-color(@background-color);
-
 }
 
 body {
@@ -161,15 +161,13 @@ body {
   ol li { list-style-type: decimal; }
 }
 //my mixings
-    
-    .my-transitions(@transition-property: all , @transition-duration: 0.3s, @transition-timing-function: ease) {
-        transition: @transition-property @transition-duration @transition-timing-function;
-        -webkit-transition: @transition-property @transition-duration @transition-timing-function;
-        -moz-transition: @transition-property @transition-duration @transition-timing-function;
-        -ms-transition: @transition-property @transition-duration @transition-timing-function;
-        -o-transition: @transition-property @transition-duration @transition-timing-function;
-    }
-
+.my-transitions(@transition-property: all , @transition-duration: 0.3s, @transition-timing-function: ease) {
+    transition: @transition-property @transition-duration @transition-timing-function;
+    -webkit-transition: @transition-property @transition-duration @transition-timing-function;
+    -moz-transition: @transition-property @transition-duration @transition-timing-function;
+    -ms-transition: @transition-property @transition-duration @transition-timing-function;
+    -o-transition: @transition-property @transition-duration @transition-timing-function;
+}
 // Text asset styling
 
 // Image asset styling
