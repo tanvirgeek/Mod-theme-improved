@@ -3,7 +3,6 @@
 // http://developers.populr.me/theming
 */
 
-
 // You must import variables.less before importing populr_mixins.less
 @import 'palette-custom';
 @import 'palette-Neimar';
@@ -21,7 +20,15 @@
 
 /////////////////////////////////////////////////////////////////////////
 // Typography defaults
-@text-color: #8C8C8C;
+@gray55:#8C8C8C;
+@dark-border-color1:#232323;
+@dark-border-color2:#F8F8F8;
+@bottom-border-top-color:#323232;
+@greyscale:#4c4c4c;
+@text-color-bottom-region:#C7C7C7;
+@grey:#808080;
+
+@text-color:@gray55;
 // @custom-color is defined in variables.less
 @link-color: @custom-color;
 // Title text defaults
@@ -86,13 +93,14 @@
 //cool header
 
 #cool-header{
-    border-top:3px solid #232323;
+    border-top:3px solid @dark-border-color1;
     position: fixed;
     background-color: white;
     width:100%;
     overflow: hidden;
     padding: 13px 0;
     z-index:1000;
+    min-height:51px;
     #cool-header-inner{
         width: 1060px;
         margin: 0 auto;
@@ -112,8 +120,8 @@
     padding: 79px 0;
     overflow: hidden;
     text-align: left;
-    border-top: 10px solid darken(#F8F8F8,4%);
-    border-bottom: 10px solid darken(#F8F8F8,4%);
+    border-top: 10px solid darken(@dark-border-color2,4%);
+    border-bottom: 10px solid darken(@dark-border-color2,4%);
 }
 #pop-title {
     max-width: 1060px;
@@ -122,7 +130,7 @@
     padding: 0!important; 
     font-size:	60px;
     font-weight:	700;
-    color:	#323232;
+    color:	@bottom-border-top-color;
     letter-spacing:	-3px;
     line-height:	1.45;
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
@@ -209,7 +217,7 @@ body {
                 top: -2px;
                 left: 1px;
                 text-align: center;
-                color:#FFFFFF;
+                color: white;
                 font-size:25px;
                 font-style:normal!important;
 
@@ -220,6 +228,7 @@ body {
     &:hover span{opacity: 1}
 }
 // Document asset styling
+
 #doc-title{
     display: table-cell;
     line-height: 1.4;
@@ -227,7 +236,7 @@ body {
     vertical-align: middle;
     height:39px;
     padding-right:10px;
-    color: #4c4c4c!important;
+    color: @greyscale!important;
     font-size:14px;
     text-transform: capitalize;
     max-width:227px;
@@ -345,7 +354,7 @@ body {
             font-weight: 300;
             line-height:1.45;
             text-align: center;
-            color:#4c4c4c;
+            color:@greyscale;
         }
         .description, .body, .description li, .body li,  {
             color: #4C4C4C;
@@ -358,23 +367,23 @@ body {
             .asset-title {
               font-size: 28px;
             }
-            background-color: #ffffff;
+            background-color: white;
             .description, .body, .description li, .body li,  {
                 font-size: 14px;
             }
     }
     .columnizer-cols3{
-        background-color: #ffffff;
+        background-color: white;
         .asset-title {
             font-size: 24px;
             font-weight: 300;
             line-height:1.45;
             text-align: center;
-            color:#4c4c4c;
+            color:@greyscale;
             letter-spacing:-1px;
         }
         .description, .body, .description li, .body li,  {
-            color: #4c4c4c;
+            color: @greyscale;
             font-size: 14px;
             font-weight: normal;
             line-height: 24px;
@@ -387,11 +396,11 @@ body {
             font-weight: 300;
             line-height:1.45;
             text-align: center;
-            color:#4c4c4c;
+            color:@greyscale;
             letter-spacing:-1px;
         }
         .description, .body, .description li, .body li,  {
-            color: #4c4c4c;
+            color: @greyscale;
             font-size: 14px;
             font-weight: normal;
             line-height:1.71;
@@ -400,7 +409,7 @@ body {
 }
 
 #bottom-region{
-         border-top: 5px solid #323232;
+         border-top: 5px solid @bottom-border-top-color;
          a {
             &:hover{color:darken(@link-color, 20%);}
          }
@@ -409,15 +418,15 @@ body {
             i.icon{color:#8c8c8c!important;}
          }
          .columnizer-row{
-             background-color: #4c4c4c;
+             background-color: @greyscale;
             .asset-title {
-                color:#FFFFFF;
+                color: white;
                 line-height: 1.45;
                 text-align: center;
                 font-weight:300;
             }
             .description, .body, .description li, .body li,  {
-                color: #C7C7C7;
+                color: @text-color-bottom-region;
                 font-size: 14px;
                 font-weight: normal;
                 line-height: 1.71;
@@ -487,10 +496,10 @@ body {
 
 
 .footer{
-    text-color: #808080;
-    background-color: #323232;
+    text-color:@grey;
+    background-color: @bottom-border-top-color;
     padding:30px 0;
-    border-top: 5px solid #323232;
+    border-top: 5px solid @bottom-border-top-color;
 }
 
 #pop-shearing {
@@ -600,7 +609,6 @@ body {
     }
 }
 
-
 @media screen and (max-height: 800px) {
-  body { background-size: 100% !important; }
+  body {background-size: 100% !important;}
 }
